@@ -1,0 +1,4 @@
+fcgi/__pycache__
+fcgi/game.db
+fcgi/auth.db
+vars/
