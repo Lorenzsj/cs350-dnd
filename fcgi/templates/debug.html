@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Debug</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Debugging Information</h1>
+      <h2>User Information:</h2>
+      username: {% if name %}{{ name }}{% else %}[empty]{% endif %}<br/>
+      csrf_token: {% if csrf_token %}{{ csrf_token }}{% else %}[none]{% endif %}<br/>
+      <h2>Page State</h2>
+      {% if name %}
+        {% if csrf_token %}
+          <!-- Good State! User correctly logged in -->
+          <div class="alert alert-success">
+            <strong>Success!</strong> You are properly logged in with a valid csrf_token.
+          </div>
+        {% else %}
+          <!-- Bad State! User logged in without security token -->
+          <div class="alert alert-warning">
+            <strong>Warning!</strong> You are logged in with a missing csrf_token.
+          </div>
+        {% endif %}
+      {% else %}
+        {% if csrf_token %}
+          <!-- Bad State! This is some form of attack likely, or csrf_token is broken. -->
+          <div class="alert alert-danger">
+            <strong>Alert!</strong> You are not logged in but have a csrf_token.
+          </div>
+        {% else %}
+          <!-- Good State! This is a not logged in user without security token -->
+          <div class="alert alert-info">
+            <strong>Valid State!</strong> You are not logged in, and possess no invalid information.
+          </div>
+        {% endif %}
+      {% endif %}
+      <br/><br/>
+      <a class="btn btn-success" href="login" role="button">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        &nbsp;Login
+      </a>
+      <a class="btn btn-danger" onclick="document.getElementById('logout').submit();" role="button">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        &nbsp;Logout {% if name %}{{ name }}{% endif %}
+      </a>
+    </div>
+    <form id="logout" method="post" action="logout">
+      <input name=csrf_token type=hidden value="{% if csrf_token %}{{ csrf_token }}{% endif %}">
+      <input type="hidden" name="name" value="value" />
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

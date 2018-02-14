@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- Much credit goes to https://codepen.io/colorlib/pen/rxddKy, which is MIT licensed -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registration Page</title>
+  <link rel="stylesheet" type="text/css" href="css/{% if color %}{{ color }}-{% else %}{% endif %}login.css">
+</head>
+<body>
+  <div class="login-page">
+  <div class="form">
+    <h3>Dr Jimbo's Fun Game</h3>
+    <h4>Registration Page</h4>
+    <form class="login-form" method="post">
+      <p class="strong-message">Use your Active Directory username</p><br/>
+      <input type="text" name="username" placeholder="username" required autofocus/>
+      <button type="submit">register</button>
+      <p class="message">Already registered? <a href="/login">Log in</a></p>
+    </form>
+  </div>
+</div>
+</body>
+</html>

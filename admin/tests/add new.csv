@@ -1,0 +1,4 @@
+# CSV format:
+#
+# username, real-name, top1, top2, top3, cumulative, year, major, department, title, office;
+rick,Rick Hammington,,,,,2017,CS,,,

@@ -1,0 +1,11 @@
+{
+    "students": [
+        { "user": "abby", "name": "Abigail Matthews" },
+        { "user": "jared", "name": "Jared Dunbar" },
+        { "user": "kristina", "name": "Kristina Kolibab" },
+        { "user": "sam", "name": "Samantha Roberts" },
+        { "user": "steveie", "name": "Stephen Lorenz" },
+        { "user": "tibbs", "name": "Phillip Tibberts" }
+    ]
+}
+

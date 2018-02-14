@@ -1,0 +1,7 @@
+# CSV format:
+#
+# username, real-name, top1, top2, top3, cumulative, year, major, department, title, office;
+bob,Bobbert Hammington,,,,,,,CS,Professor,SC336
+chip,Chip Sillerf,,,,,2017,CS,,,
+andy,Andy Ransdal,,,,,2019,CS and Math,,,
+roger,Roger Danhandle,,,,,,,CS,Associate Professor,SC334-a

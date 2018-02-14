@@ -1,0 +1,40 @@
+{
+  "students": [
+    {
+      "user": "jared",
+      "name": "Jared Dunbar",
+      "class": "2019",
+      "score": 39
+    },
+    {
+      "user": "steveie",
+      "name": "Stephen",
+      "class": "2018",
+      "score": 20
+    },
+    {
+      "user": "sam",
+      "name": "Sam",
+      "class": "2017",
+      "score": 54
+    },
+    {
+      "user": "abby",
+      "name": "Abby",
+      "class": "2019",
+      "score": 23
+    },
+    {
+      "user": "kristina",
+      "name": "Kristina",
+      "class": "2019",
+      "score": 53
+    },
+    {
+      "user": "tibbs",
+      "name": "Tibberts",
+      "class": "2019",
+      "score": 54
+    }
+  ]
+}

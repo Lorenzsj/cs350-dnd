@@ -1,0 +1,9 @@
+[Unit]
+Description=drjimbo-game
+
+[Service]
+ExecStart=/bin/bash /opt/drjimbo-game/server.sh
+User=www-data
+
+[Install]
+WantedBy=multi-user.target

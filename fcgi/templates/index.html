@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dr Jim's Faculty Funtime</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <br/><br/>
+      <div class="row-marketing">
+        <h2>Welcome to Dr Jim's Faculty Funtime Project</h2>
+        {% if name %}
+          {% if csrf_token %}
+            <p style="margin-left: 2%;">
+              Welcome back, {% if name %}{{ name }}{% endif %}
+            </p>
+            <a class="btn btn-success" href="live-game" role="button">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              &nbsp;To the games!
+            </a>
+            <a class="btn btn-info" href="stats" role="button">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              &nbsp;To the stats!
+            </a>
+            <a class="btn btn-danger" onclick="document.getElementById('logout').submit();" role="button">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              &nbsp;Logout {% if name %}{{ name }}{% endif %}
+            </a>
+          {% endif %}
+        {% else %}
+          <p style="margin-left: 2%;">
+            Click the button below to login!
+          </p>
+          <a class="btn btn-success" href="login" role="button">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            &nbsp;Login
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <form id="logout" method="post" action="logout">
+      <input name=csrf_token type=hidden value="{% if csrf_token %}{{ csrf_token }}{% endif %}">
+      <input type="hidden" name="name" value="value" />
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

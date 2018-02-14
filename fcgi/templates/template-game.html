@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Debug - Template Game</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Debugging Information</h1>
+      <h2>User Information:</h2>
+      username: {% if name %}{{ name }}{% else %}[empty]{% endif %}<br/>
+      csrf_token: {% if csrf_token %}{{ csrf_token }}{% else %}[none]{% endif %}<br/>
+      <a class="btn" onclick="sendScore(3);" role="button">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        &nbsp;Send Score of 3
+      </a>
+    </div>
+    <div hidden id="csrf_token">{% if csrf_token %}{{ csrf_token }}{% endif %}</div>
+    <script>
+function sendScore(thescore)
+{
+  var sendurl = "/score";
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", sendurl, true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function() {//Call a function when the state changes.
+    if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+      // Request finished. Do processing here.
+
+    }
+  }
+
+  xhr.send("score=" + thescore + "&csrf_token=" + document.getElementById("csrf_token").innerText);
+}
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>
